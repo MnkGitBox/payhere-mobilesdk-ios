@@ -8,7 +8,7 @@ s.summary = "Mobile SDK for payHere"
 s.requires_arc = true
 
 # 2
-s.version = "2.1.3"
+s.version = "2.1.4"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -20,7 +20,7 @@ s.author = { "PayHere" => "support@payhere.lk" }
 s.homepage = "https://www.payhere.lk/"
 
 # 6 - Replace this URL with your own Git URL from "Quick Setup"
-s.source = { :git => "https://github.com/PayHereLK/payhere-mobilesdk-ios.git", :tag => "#{s.version}"}
+s.source = { :git => "https://github.com/MnkGitBox/payhere-mobilesdk-ios.git", :tag => "#{s.version}"}
 #s.resource_bundle = { 'payHereSDK' => 'payHereSDK/Sources/**/*.storyboard' }
 
 
