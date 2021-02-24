@@ -28,8 +28,8 @@ s.source = { :git => "https://github.com/MnkGitBox/payhere-mobilesdk-ios.git", :
 
 # 7
 s.frameworks = 'UIKit','WebKit'
-s.dependency 'Alamofire', '~> 5.0'
-s.dependency 'AlamofireObjectMapper', '~> 6.0'
+s.dependency 'Alamofire'
+s.dependency 'AlamofireObjectMapper'
 
 
 

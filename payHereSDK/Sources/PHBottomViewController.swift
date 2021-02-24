@@ -5,7 +5,6 @@
 //  Created by Kamal Upasena on 12/17/19.
 //  Copyright © 2019 PayHere. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 import ObjectMapper
@@ -398,8 +397,9 @@ internal class PHBottomViewController: UIViewController {
             
         }else{
             self.dismiss(animated: true, completion: {
-                let error = NSError(domain: "", code: 401, userInfo: [NSLocalizedDescriptionKey: "Oparation Canceld"])
+                let error = NSError(domain: "", code: 402, userInfo: [NSLocalizedDescriptionKey: "Oparation Canceld"])
                 self.delegate?.onErrorReceived(error: error)
+                self.stopUpdateSuccessBanner()
             })
         }
         
@@ -456,8 +456,9 @@ internal class PHBottomViewController: UIViewController {
                 animateChanges { [weak self] in
                     
                     self!.dismiss(animated: true, completion: {
-                        let error = NSError(domain: "", code: 401, userInfo: [NSLocalizedDescriptionKey: "Oparation Canceld"])
+                        let error = NSError(domain: "", code: 402, userInfo: [NSLocalizedDescriptionKey: "Oparation Canceld"])
                         self!.delegate?.onErrorReceived(error: error)
+                        self!.stopUpdateSuccessBanner()
                     })
                 }
                 
@@ -826,6 +827,14 @@ internal class PHBottomViewController: UIViewController {
                     break
                 }
                 
+        }
+    }
+    
+    private func stopUpdateSuccessBanner() {
+        if (timer?.isValid) ?? false {
+            delegate?.onResponseReceived(response: PHResponse(status: self.getStatusFromResponse(lastResponse: statusResponse!), message: "Payment completed. Check response data", data: statusResponse!))
+            
+            self.timer?.invalidate()
         }
     }
     
